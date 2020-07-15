@@ -29,7 +29,7 @@ class CategoryController extends Controller
             $category->name = $request->name;
             $category->description = $request->description;
             $category->save();
-            return redirect('categories')->with('status', 'Created!');
+            return redirect('categories')->with('status', 'OK!');
         }
 
 
@@ -51,7 +51,7 @@ class CategoryController extends Controller
             $category->name = $request->name;
             $category->description = $request->description;
             $category->save();
-            return redirect('categories')->with('status', 'Created!');
+            return redirect('categories')->with('status', 'OK!');
         }
 
         if(!$category)  return redirect('categories')->with('status', 'Not found');

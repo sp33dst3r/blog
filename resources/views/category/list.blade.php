@@ -9,7 +9,7 @@
 
 
 
-
+<h1>Categories</h1>
 
 @if (session('status'))
     <div class="alert alert-success">
