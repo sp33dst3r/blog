@@ -64,7 +64,13 @@ class CategoryController extends Controller
         $id = $request->id;
         $category = Category::find($id);
         if($category){
+            foreach($category->comments as $comment){
+                $comment->delete();
+            }
             foreach($category->posts as $post){
+                foreach($post->comments as $comment){
+                    $comment->delete();
+                }
                 \Storage::delete($post->file);
                 $post->delete();
             }

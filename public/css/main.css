@@ -54,3 +54,9 @@ padding: 20px;
 .mt{
     margin-top: 50px;
 }
+
+
+footer{
+    padding-top: 10px;
+    border-top: 2px solid black;
+}

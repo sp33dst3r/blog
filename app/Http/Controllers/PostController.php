@@ -21,14 +21,9 @@ class PostController extends Controller
 
             $validatedData = $request->validate($this->validator);
 
-           // $file = $request->file;
-           // $filename = uniqid().$file->getClientOriginalName().".".$file->extension();
-//uniqid() is php function to generate uniqid but you can use time() etc.
 
-
-           // \Storage::disk('local')->put($filename,file_get_contents($file));
             $path = $request->file->store('files');
-            //dd($path);
+
             $category = Category::where(['id'=>$request->category_id])->firstOrFail();
 
             $post = new Post();
@@ -40,15 +35,14 @@ class PostController extends Controller
             return redirect('/categories/view/'.$request->category_id)->with('status', 'Created!');
         }
 
-
-        return view('post.create', array("category_id"=>$request->id));
+        return view('post.create', array("category_id"=>$request->category_id));
 
     }
 
     public function edit(Request $request)
     {
 
-        //dd($request->id);
+
         $post = Post::find($request->id);
 
         $oldfile = \Storage::url("app/".$post->file);
@@ -65,8 +59,7 @@ class PostController extends Controller
             }else{
                 unset($this->validator['file']);
             }
-            //$oldfile
-            //dd($request->file);
+
 
 
             $validatedData = $request->validate($this->validator);
@@ -82,7 +75,7 @@ class PostController extends Controller
         }
 
 
-        //dd($file);
+
         return view('post.create', array("category_id"=>$request->category_id, "post"=>$post, "file"=>$oldfile));
 
     }
@@ -93,6 +86,10 @@ class PostController extends Controller
 
         $post = Post::find($id);
         if($post){
+            foreach($post->comments as $comment){
+                $comment->delete();
+
+            }
             \Storage::delete($post->file);
             $post->delete();
         }
@@ -103,7 +100,7 @@ class PostController extends Controller
     public function view(Request $request)
     {
         $post = Post::find($request->id);
-        //dd($post->category_id);
+
         $oldfile = \Storage::url("app/".$post->file);
         return view('post.view', array("post"=>$post, "file"=>$oldfile));
 

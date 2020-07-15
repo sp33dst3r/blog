@@ -6,7 +6,7 @@
 
 @section('content')
 
-
+<h1>Category</h1>
 
 
 
@@ -20,7 +20,7 @@
 
 
 <div class="cnt">
-    <h1>{{$category->name}}</h1>
+    <h2>{{$category->name}}</h2>
     <h6>{{$category->description}}</h6>
     <a href="/categories" type="button" class="btn btn-primary">Back</a>
     <div class="row cnt2">

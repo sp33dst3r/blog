@@ -7,7 +7,7 @@
 @section('content')
 
 
-
+<h1>Post</h1>
 
 
 
@@ -16,7 +16,7 @@
 
 
 <div class="cnt">
-    <h1>{{$post->name}}</h1>
+    <h2>{{$post->name}}</h2>
     <div class="post-content">{{$post->content}}</div>
     <div>
         <h6>File</h6>
