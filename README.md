@@ -6,6 +6,7 @@
 
 4. php artisan key:generate
 
+5. Add Permissions to Laravel Storage for file manipulations
 
 
 
