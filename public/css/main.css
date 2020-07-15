@@ -1,0 +1,56 @@
+body{
+padding: 20px;
+}
+.cnt{
+
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.main-wrapper, .cnt{
+    min-height: 50vh;
+}
+.entity-name{
+    color: green;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.delete{
+    color: red;
+}
+.cnt2{
+    border: 1px solid black;
+    margin-top: 60px;
+}
+.author-name{
+    font-weight: bold;
+    font-size: 12px;;
+}
+.comment-content{
+    font-weight: 14px;
+}
+.comment{
+    border: 1px dotted green;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#comments > div:last-child{
+    margin-bottom: 40px;
+}
+.post-content{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.error{
+    color: red;
+}
+.entry-point{
+    font-size: 30px;
+
+}
+
+.mt{
+    margin-top: 50px;
+}
